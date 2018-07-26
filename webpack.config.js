@@ -5,6 +5,7 @@ var BUILD_DIR = path.resolve(__dirname, './build');
 var APP_DIR = path.resolve(__dirname, './client/src');
 
 const config = {
+    mode: 'development',
     entry: {
         main: APP_DIR + '/index.js'
     },
@@ -25,11 +26,12 @@ const config = {
             },
             {
                 test: /\.(jsx|js)?$/,
+                exclude: /node_modules/,
                 use: [{
                     loader: "babel-loader",
                     options: {
                         cacheDirectory: true,
-                        presets: ['react', 'es2015'] // Transpiles JSX and ES6
+                        presets: ['react', 'es2015', "stage-2"] // Transpiles JSX and ES6
                     }
                 }]
             }

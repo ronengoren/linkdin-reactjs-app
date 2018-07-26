@@ -8,18 +8,39 @@
         "heroku-postbuild": "cd client && yarn --production=false && yarn run build"
     },
     "dependencies": {
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.1.5",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-stage-2": "^6.24.1",
         "body-parser": "^1.18.3",
         "cookie-parser": "^1.4.3",
+        "css-loader": "^1.0.0",
         "debug": "~3.1.0",
         "dotenv": "^6.0.0",
         "ejs": "^2.6.1",
         "express": "^4.16.3",
         "morgan": "^1.9.0",
         "serve-favicon": "^2.5.0",
-        "superagent": "^3.8.3"
+        "style-loader": "^0.21.0",
+        "superagent": "^3.8.3",
+        "webpack": "^4.16.2"
     },
     "engines": {
         "node": "8.10.0",
         "yarn": "1.7.0"
-    }
+    },
+    "devDependencies": {
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "node-sass": "^4.9.2",
+        "sass-loader": "^7.0.3",
+        "webpack-cli": "^3.1.0"
+    },
+    "presets": [
+        "env",
+        "react"
+    ],
+    "plugins": [
+        "transform-object-rest-spread",
+        "transform-class-properties"
+    ]
 }

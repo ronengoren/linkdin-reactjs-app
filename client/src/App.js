@@ -4,8 +4,7 @@ import ProfileCard from "./components/ProfileCard";
 import Alert from "react-s-alert";
 import "react-s-alert/dist/s-alert-default.css";
 import "react-s-alert/dist/s-alert-css-effects/slide.css";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import brands from "@fortawesome/fontawesome-free-brands";
+
 
 var IN = null;
 
@@ -21,6 +20,7 @@ class App extends Component {
       profileURL: null,
       pictureURL: null,
       location: null,
+      industry: null,
       positions: null,
       summary: null,
       connectionsCount: null,
@@ -66,7 +66,7 @@ class App extends Component {
 
   requestLinkedinProfile = () => {
     IN.API.Raw(
-      "/people/~:(first-name,last-name,public-profile-url,location,headline,picture-url,positions,summary,num-connections)?format=json"
+      "/people/~:(first-name,last-name,public-profile-url,location,headline,picture-url,positions,summary,num-connections, industry)?format=json"
     )
       .method("GET")
       .body()
@@ -82,6 +82,7 @@ class App extends Component {
       pictureURL: profile.pictureUrl,
       location: profile.location.name,
       positions: profile.positions,
+      industry: profile.industry,
       summary: profile.summary,
       connectionsCount: profile.numConnections
     });
@@ -121,7 +122,7 @@ class App extends Component {
   };
 
   requestOAuthToken = () => {
-    var oauthUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.REACT_APP_CLIENT_ID}&scope=r_basicprofile&state=123456&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}`
+    var oauthUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.LINKEDIN_CLIENT_ID}&scope=r_basicprofile&state=123456&redirect_uri=${process.env.REDIRECT_URI}`
     var width = 450,
       height = 730,
       left = window.screen.width / 2 - width / 2,
@@ -157,7 +158,8 @@ class App extends Component {
          <header className="App-header">
            <h1 className="App-title">React Linkedin Login</h1>
            <p className="App-intro">A demo page for Linkedin login</p>
-          
+           <p className="App-intro">A demo page for Linkedin login</p>
+
            <Alert />
          </header>
          <div className="App-body">
@@ -184,6 +186,8 @@ class App extends Component {
                 positions={this.state.positions}
                 summary={this.state.summary}
                 connectionsCount={this.state.connectionsCount}
+                industry={this.state.industry}
+
               />
             )}
         </div>
