@@ -66,7 +66,7 @@ class App extends Component {
 
   requestLinkedinProfile = () => {
     IN.API.Raw(
-      "/people/~:(first-name,last-name,public-profile-url,location,headline,picture-url,positions,summary,num-connections, industry)?format=json"
+      "/people/~:(first-name,last-name,public-profile-url,location,headline,picture-url,positions,summary,num-connections,industry)?format=json"
     )
       .method("GET")
       .body()
