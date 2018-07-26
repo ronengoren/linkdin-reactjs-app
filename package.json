@@ -1,0 +1,25 @@
+{
+    "name": "linkedin-app-react",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "start": "node ./bin/www",
+        "webpack": "./node_modules/.bin/webpack -w",
+        "heroku-postbuild": "cd client && yarn --production=false && yarn run build"
+    },
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "cookie-parser": "^1.4.3",
+        "debug": "~3.1.0",
+        "dotenv": "^6.0.0",
+        "ejs": "^2.6.1",
+        "express": "^4.16.3",
+        "morgan": "^1.9.0",
+        "serve-favicon": "^2.5.0",
+        "superagent": "^3.8.3"
+    },
+    "engines": {
+        "node": "8.10.0",
+        "yarn": "1.7.0"
+    }
+}
