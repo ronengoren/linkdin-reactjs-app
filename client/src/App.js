@@ -158,6 +158,8 @@ class App extends Component {
          <header className="App-header">
            <h1 className="App-title">React Linkedin Login</h1>
            <p className="App-intro">A demo page for Linkedin login</p>
+           <p className="App-intro">testest</p>
+
 
            <Alert />
          </header>
